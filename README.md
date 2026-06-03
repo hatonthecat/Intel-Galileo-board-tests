@@ -1,5 +1,5 @@
 # Intel-Galileo-board-tests
-Testing an Intel Galileo board (2013-14) purchased on eBay
+Testing an Intel Galileo board (2013-14) purchased on eBay.
 
 https://inavoyage.blogspot.com/2026/06/testing-galileo-board-in-2026.html
 

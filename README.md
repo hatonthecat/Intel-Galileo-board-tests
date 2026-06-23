@@ -93,7 +93,7 @@ So I guess this resolves a long standing question I had about the Arduino softwa
 
 As I mentioned earlier, the first test I ran was Blink LED (under the Example bar). This is the most useful test to confirm the USB or LAN is actually sending commands to the board, and not randomly blinking. Strangely after playing around with PuTTY and TeraTerm, it seems like my router lost signal with the board, and no longer displays an IP address nor connection. There is still an orange light on the LAN port (orange and yellow, same as before I recall correctly, which may just indicate 100Mbps instead of 1Gbps), but I may be wrong.
 
-As the saying goes, "two steps forward, one step back." The setback is that the LAN doesn't seem to work, but the Serial USB is at least able to connect, and it's the first time anything was able to connect. So maybe that is considered two steps.
+As the saying goes, "two steps forward, one step back." The setback is that the LAN doesn't seem to work, but the Serial USB is at least able to connect, and it's the first time anything was able to ~~connect~~communicate. So maybe that is considered two steps forward.
 
 I already restarted the router, but I suppose one flaw I did in flashing was I left the Cat5 cable plugged in instead of allowing the USB to flash the Serial alone with the power. Wasn't needed, most likely (I wonder if somehow it updated via the LAN despite not actually working subsequently. The prior eBAY owner could have installed their own firmware, for all I know- and phoned home. Interestingly, on one screen it DID display firmware "704" or "754" or "708", which might have indicated a custom firmware, although I did not recognize if that is an internal codename for the earlier 1.0.04 (possibly?)
 

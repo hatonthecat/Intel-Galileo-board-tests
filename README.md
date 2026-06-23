@@ -83,10 +83,7 @@ In a strange twist of events, plugging in a microUSB cable to the Client-USB por
 <img width="408" height="456" alt="serial" src="https://github.com/user-attachments/assets/dcca8d0e-135f-4742-b85a-ac3cefe0d8fa" />
 <img width="1222" height="611" alt="gadget driver" src="https://github.com/user-attachments/assets/fe8964b0-cce4-46e4-beb2-b27908bc0e59" />
 
-Loading the Firmware Updater Tool, it did confirm that an earlier version of the Firmware was installed- 1.0.4. I had never been able to flash it before, and it finally worked. It took about 5 minutes, so don't unplug the power or USB cable while it is flashing. Fortunately there were no power outages (Plugging it into a battery with an inverter might be a safer bet if there is unstable power). I didn't use FRAPS, but I loaded it in case it wo<img width="1502" height="620" alt="targfirm" src="https://github.com/user-attachments/assets/1e771af8-e697-48a4-bc97-8603e279a4fa" />
-uld let me record (no built in encoder)
-
-<img width="1477" height="715" alt="actually flashing" src="https://github.com/user-attachments/assets/ed5ba0a7-4efd-4728-9be8-0523ee66cb1b" />
+Loading the Firmware Updater Tool, it did confirm that an earlier version of the Firmware was installed- 1.0.4. I had never been able to flash it before, and it finally worked. It took about 5 minutes, so don't unplug the power or USB cable while it is flashing. Fortunately there were no power outages (Plugging it into a battery with an inverter might be a safer bet if there is unstable power). I didn't use FRAPS, but I loaded it in case it would let me record (no built in encoder)
 
 <img width="1477" height="715" alt="actually flashing" src="https://github.com/user-attachments/assets/1851333d-eb46-4961-bc45-d5422b9ae602" />
 

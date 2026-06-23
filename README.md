@@ -1,4 +1,4 @@
-<img width="1477" height="715" alt="actually flashing" src="https://github.com/user-attachments/assets/1851333d-eb46-4961-bc45-d5422b9ae602" /># Intel-Galileo-board-tests
+# Intel-Galileo-board-tests
 Testing an Intel Galileo board (2013-14) purchased on eBay.
 
 https://inavoyage.blogspot.com/2026/06/testing-galileo-board-in-2026.html
@@ -87,6 +87,8 @@ Loading the Firmware Updater Tool, it did confirm that an earlier version of the
 uld let me record (no built in encoder)
 
 <img width="1477" height="715" alt="actually flashing" src="https://github.com/user-attachments/assets/ed5ba0a7-4efd-4728-9be8-0523ee66cb1b" />
+
+<img width="1477" height="715" alt="actually flashing" src="https://github.com/user-attachments/assets/1851333d-eb46-4961-bc45-d5422b9ae602" />
 
 <img width="1502" height="620" alt="targfirm" src="https://github.com/user-attachments/assets/6c4b2b70-b92e-43b3-88d0-7acba6969dac" />
 

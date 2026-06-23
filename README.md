@@ -1,4 +1,4 @@
-# Intel-Galileo-board-tests
+<img width="1477" height="715" alt="actually flashing" src="https://github.com/user-attachments/assets/1851333d-eb46-4961-bc45-d5422b9ae602" /># Intel-Galileo-board-tests
 Testing an Intel Galileo board (2013-14) purchased on eBay.
 
 https://inavoyage.blogspot.com/2026/06/testing-galileo-board-in-2026.html
@@ -74,3 +74,29 @@ Interestingly, yesterday I recall reading a blog that mentioned the write speed 
 There are a lot of brilliant developers who have tested this board successfully. I am so behind on familiarizing myself with this board. I am sure some of the working solutions and knowledge about this board has been forgotten, and it sometimes gets an incomplete restoration. Many hidden quirks have been ironed out by someone on the web, but no one has a complete monopoly on all the fixes and applications, fortunately...Still, that makes hunting for a straightforward install much harder.
 
 A week ago, I started reading "Where Wizards Stay Up Late" (1996). The author emphasizes at several points that a lot of the BBN technologists were in the top 1% of the top 1% of their class, or amongst hackers, the most brilliant at fixing the rarest bugs, like a synchronization bug (Crowther). This board may not be as complicated as a sync timer, despite having one(?), and some of that objectivity in standardized testing might be viewed a bit differently today, but it is remarkable how much knowledge is required to build it, and yet seemingly few actually did a thorough benchmark of all it's features/capabilities. It would be nice if I can scrape the surface of any of its functionality, and extraordinary if I didn't encounter a single bug.
+
+2:45pm
+---
+
+In a strange twist of events, plugging in a microUSB cable to the Client-USB port on the Galileo board and the other end int a USB port on my laptop (right side) allowed Windows 10 to detect the COM3 driver, which Arduino 1.5.3 (the only Arduino version designed specifically for Galileo) now detects as the SAME COM3 port. I fortunately still had the firmware 1.1.10 and the Updater tool, so it seemed like a fresh opportunity to update the firmware and test out the Blink LED example test in Arduino! And sure enough, it worked! What I did first was Update Driver in Device Manager, where I located the Gadget Serial driver after the COM3 port was detected and added to the COM list:
+
+<img width="408" height="456" alt="serial" src="https://github.com/user-attachments/assets/dcca8d0e-135f-4742-b85a-ac3cefe0d8fa" />
+<img width="1222" height="611" alt="gadget driver" src="https://github.com/user-attachments/assets/fe8964b0-cce4-46e4-beb2-b27908bc0e59" />
+
+Loading the Firmware Updater Tool, it did confirm that an earlier version of the Firmware was installed- 1.0.4. I had never been able to flash it before, and it finally worked. It took about 5 minutes, so don't unplug the power or USB cable while it is flashing. Fortunately there were no power outages (Plugging it into a battery with an inverter might be a safer bet if there is unstable power). I didn't use FRAPS, but I loaded it in case it wo<img width="1502" height="620" alt="targfirm" src="https://github.com/user-attachments/assets/1e771af8-e697-48a4-bc97-8603e279a4fa" />
+uld let me record (no built in encoder)
+
+<img width="1477" height="715" alt="actually flashing" src="https://github.com/user-attachments/assets/ed5ba0a7-4efd-4728-9be8-0523ee66cb1b" />
+
+![Uploading targfirm.JPG…]()
+
+So I guess this resolves a long standing question I had about the Arduino software. I assumed it wouldn't work right because it needed a 32-bit OS, such as Windows 7, 8 or 10 instead of the 64 bit versions. That is quite a relief, since I would have avoided the need to run it in a VM or on another partition.
+
+As I mentioned earlier, the first test I ran was Blink LED (under the Example bar). This is the most useful test to confirm the USB or LAN is actually sending commands to the board, and not randomly blinking. Strangely after playing around with PuTTY and TeraTerm, it seems like my router lost signal with the board, and no longer displays an IP address nor connection. There is still an orange light on the LAN port (orange and yellow, same as before I recall correctly, which may just indicate 100Mbps instead of 1Gbps), but I may be wrong.
+
+As the saying goes, "two steps forward, one step back." The setback is that the LAN doesn't seem to work, but the Serial USB is at least able to connect, and it's the first time anything was able to connect. So maybe that is considered two steps.
+
+I already restarted the router, but I suppose one flaw I did in flashing was I left the Cat5 cable plugged in instead of allowing the USB to flash the Serial alone with the power. Wasn't needed, most likely (I wonder if somehow it updated via the LAN despite not actually working subsequently. The prior eBAY owner could have installed their own firmware, for all I know- and phoned home. Interestingly, on one screen it DID display firmware "704" or "754" or "708", which might have indicated a custom firmware, although I did not recognize if that is an internal codename for the earlier 1.0.04 (possibly?)
+
+Since I got it to communicate, I ran a few more PuTTY tests over ethernet, but it seems like the LAN isn't working at the moment via all applications and the router is most likely accurately reporting the Ip addresses. So I have a few options now, one is to find a complementary suite of apps I can flash the SD card, to potentially restore functionality in the LAN, and if not, at least do all the installations from the COM3 port and serial. The only thing is, I may need to run some commands from Windows 10 (e.g. Serial) whereas I may need to switch to Linux if I want to run some things over Ethernet, if I can get it to work again. Possibly a minor issue and a multi prong approach can debug a lot faster than being stuck on one distro.
+

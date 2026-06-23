@@ -51,7 +51,7 @@ More succinctly, I am trying to install linux on the Galileo with a desktop envi
 
 The LAN method at least has some conveniences- knowing it's actually connected the router, for example. I have established 192.168.1.2 as the new IP address (yesterday it was .3)
 
-I have used various flashing software. I have linux and Windows on 2 separate machines (3 OSes on 2 drives, technically), and got an interesting progression today with Rawrite32 (yes, for Windows). The first time I tried flashing it said there was an error writing- I was using a MicroSD to SD adapter, which was plugged into an SD slot on my i7 3720WM laptop. The exact steps taken were this:
+I have used various flashing software. I have linux and Windows on 2 separate machines (3 OSes on 2 drives, technically), and got an interesting progression today with Rawrite32 (yes, for Windows). The first time I tried flashing it said there was an error writing- I was using a MicroSD to SD adapter, which was plugged into an SD slot on my i7 3720QM laptop. The exact steps taken were this:
 
 1. Used Raspberry Pi Imager to Erase 32GB SDHC disc.
 2. Used Rawrite32 to write 269MB image (7z compressed) of Galileo.img_v.1.0.0.7z. Displayed one error #5 writing to disk, but otherwise said complete .

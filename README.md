@@ -88,7 +88,7 @@ uld let me record (no built in encoder)
 
 <img width="1477" height="715" alt="actually flashing" src="https://github.com/user-attachments/assets/ed5ba0a7-4efd-4728-9be8-0523ee66cb1b" />
 
-![Uploading targfirm.JPG…]()
+<img width="1502" height="620" alt="targfirm" src="https://github.com/user-attachments/assets/6c4b2b70-b92e-43b3-88d0-7acba6969dac" />
 
 So I guess this resolves a long standing question I had about the Arduino software. I assumed it wouldn't work right because it needed a 32-bit OS, such as Windows 7, 8 or 10 instead of the 64 bit versions. That is quite a relief, since I would have avoided the need to run it in a VM or on another partition.
 

@@ -60,11 +60,11 @@ I have used various flashing software. I have linux and Windows on 2 separate ma
 
 Tried to SSH into board. Conenction refused. Probably didn't write correctly.
 
-Found a different image, this one labeled galileo-1.2.img and tried to write it. Also used a USB adapter instead of the in-laptop SDHC slot:
+Found a different image, this one labeled galileo-1.2.img and tried to write it. Also ran Wind Disk Imager as Admin. Also used a USB adapter instead of the in-laptop SDHC slot:
 
 <img width="555" height="315" alt="Sucessfully written to SDHC using SDXC 3 0 reader for Galileo" src="https://github.com/user-attachments/assets/2d33c7f5-acc9-41fb-a087-5872c0e9b6c3" />
 
-There were no errors in the writing process, but I had doubts as to whether it contained all the useful software needed to SSH. It just occurred to me that I should erase the disk with at least a Quick Format on Rpi Imager before overwriting it, in case old sectors were read by the Galileo firmware.
+There were no errors in the writing process, but I had doubts as to whether it contained all the useful software needed to SSH. It just occurred to me that I should erase the disk with at least a Quick Format on Rpi Imager before overwriting it, in case old sectors were read by the Galileo firmware. The fix could have been any one of the changes that were made in the 2nd attempt. 
 
 Also found an archived page of instructions on how to formally flash the SD card from Intel:
 https://web.archive.org/web/20181010091008/https://software.intel.com/en-us/get-started-galileo-linux-step1

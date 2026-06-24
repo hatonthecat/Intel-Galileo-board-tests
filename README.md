@@ -130,8 +130,8 @@ As Bill Gates once said*, "2GB ought to be enough storage for anyone"
 
 *NOT.
 
-I am curious of the speed of FAT16/B though. On a modern SDHC card, maybe there are some benefits? Or no. I have run into the 4GB limit on my Panasonic cameras before, so I know there is a nicety to exFAT. But I don't need that now.
+I am curious of the speed of FAT16/B though. On a modern SDHC card, maybe there are some benefits? Or no. I have run into the 4GB limit on my Panasonic cameras before, so I know there is a nicety(?) to exFAT that the filesystem required . But I don't need that now.
 
 
 
-that the filesystem required 
+

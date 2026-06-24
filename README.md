@@ -100,3 +100,21 @@ I already restarted the router, but I suppose one flaw I did in flashing was I l
 Since I got it to communicate, I ran a few more PuTTY tests over ethernet, but it seems like the LAN isn't working at the moment via all applications and the router is most likely accurately reporting the Ip addresses. So I have a few options now, one is to find a complementary suite of apps I can flash the SD card, to potentially restore functionality in the LAN, and if not, at least do all the installations from the COM3 port and serial. The only thing is, I may need to run some commands from Windows 10 (e.g. Serial) whereas I may need to switch to Linux if I want to run some things over Ethernet, if I can get it to work again. Possibly a minor issue and a multi prong approach can debug a lot faster than being stuck on one distro.
 
 How the correct driver finally installed? It's possible Windows ran a few updates in the background over the past few weeks and finally determined the right driver for my Galileo board. It's unclear why it wasn't able to find it sooner, but I doubt it was dependent on other updates that had to be installed. Maybe it had to revert to an older update after it sent multiple errors to Microsoft. In any case, I found that to be quite rare- a distro this recent wouldn't be guaranteed to support Galileo, which is over 12 years old. And Windows 10 hasn't gotten security updates in nearly a year (although unofficial updates have occasionally appeared in the Update queue.)
+
+9:13 PM 
+--
+On my last "sabbatical" a few years ago, when I was studying Raku and PERL language, I had downloaded a bunch of Code Editors like VS Code, Comma, Vim variants, etcetera and I had preferred the Github Web editor for the most part, but I had installed Comma on this laptop around that time- the version I have installed is Comma 2022.10.  
+I like the split screen and realtime preview- while it most certainly isn't the only one, the only thing I want to "fix" on this is to allow the sentences to automatically word wrap, even though this editor is designed for code and not word processing/publishing formats.
+Maybe there is a way it can automatically generate a new line of "code" because the longer lines slow down the computer, since it's probably trying to parse/analyze it.
+
+Writing in a code editor does create the constraint to want to write like Hemingway. To avoid lack word wrap features.
+
+My original update was intended to cover a detail I read earlier today, where someone in a blog on Galileo tests years ago mentioned that the Galileo doesn't enable LAN by default. The fact that my router assigned an IP address suggests that one of the earlier firmwares or images I had in the SD card enabled the LAN at some point. 
+It's possible the new firmware disabled it, although I found an Arduino sketch that might reenable it. 
+Interestingly, I found that I when I tried to log into my Netgear router from one of my wifi PCs, it actually revealed that a new device from 192.168.1.23 is managing the device. 
+I have seen this message only a couple times yesterday when I was logged in from one of my PCs, but never from the Galileo board. 
+I do recall I enabled internet sharing with it yesterday, so it's possible that setting got transferred over.
+I do hope it wasn't some SSH feature that got enabled from my PC by accident, allowing some rogue firmware/image to manage my entire home network (half joke). 
+But I suppose it's possible since I am not a DEFCON cybersecurity expert.
+
+The progress I am making is incremental, but I think it is getting a lot closer to running some actual linux software on the board. I do have both the minimal and larger linux images designed for Galileo, but I will have to review my notes from 3 weeks ago when I started these tests or try one of the Yocto project images hosted somewhere (some on github). If I can set up significant linux commands and point it to a maintained repository of dependencies, then I might be able download any remaining software on it once it is installed. Most likely, I will have to use a fairly old version of Yocto if I want to spin a new one, but fortunately I have enough RAM to compile in a short time (and I plan to compile multiple once I get good at it)

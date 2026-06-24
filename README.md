@@ -118,3 +118,20 @@ I do hope it wasn't some SSH feature that got enabled from my PC by accident, al
 But I suppose it's possible since I am not a DEFCON cybersecurity expert.
 
 The progress I am making is incremental, but I think it is getting a lot closer to running some actual linux software on the board. I do have both the minimal and larger linux images designed for Galileo, but I will have to review my notes from 3 weeks ago when I started these tests or try one of the Yocto project images hosted somewhere (some on github). If I can set up significant linux commands and point it to a maintained repository of dependencies, then I might be able download any remaining software on it once it is installed. Most likely, I will have to use a fairly old version of Yocto if I want to spin a new one, but fortunately I have enough RAM to compile in a short time (and I plan to compile multiple once I get good at it)
+
+6/24/2026
+--
+
+10:30am
+
+After watching a few tutorials on YT, I was surprised and totally forgot that Windows 9x systems depended on, more or less FAT16 until the mid 90s and is a requirement for writing the image to the SDHC card. Since I had the privilege of using HDDs in the mid 90s, I warmly recall using FDISK (to format drives ranging from 1GB to more than 4GB. The MSDOS menu would kindly make you aware that there was a 2GB partition size limit for the standard FAT16 using 32KB clusters. So, the maximum size some of these images are going to use is 2GB at most, even with a newer linux. I sometimes forget or get mixed up the differences between 16 bit operating systems  and filesystems, as they are not all the same, and probably can use the two on the same system. But... I will explore more that later. Right now, I need to use the standard FAT formatting, which Windows still conveniently offers in the GUI tool. 2GB is more than 2X my first HDD, so I don't think that will be limiting in any way. I would love to get ELKS Linux working on a 256MB filesystem, but maybe another day.
+
+As Bill Gates once said*, "2GB ought to be enough storage for anyone"
+
+*NOT.
+
+I am curious of the speed of FAT16/B though. On a modern SDHC card, maybe there are some benefits? Or no. I have run into the 4GB limit on my Panasonic cameras before, so I know there is a nicety to exFAT. But I don't need that now.
+
+
+
+that the filesystem required 

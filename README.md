@@ -136,6 +136,30 @@ As Bill Gates once said*, "2GB ought to be enough storage for anyone"
 
 I am curious of the speed of FAT16/B though. On a modern SDHC card, maybe there are some benefits? Or no. I have run into the 4GB limit on my Panasonic cameras before, so I know there is a nicety(?) to exFAT that the filesystem required . But I don't need that now.
 
+5:44pm
+--
+
+Holy molex, I actually booted into linux on my Galileo board! I didn't think I would be able to get this far after just one day of getting it to blink LED (if you don't count the tests I did three weeks ago, but I have used some very composite methods, following a few tips from various tutorials, since I didn't exactly trust what they all had to say. Funnily enough, one tutorial said the Galileo supports NTFS and FAT32, whereas most places say it supports FAT and FAT32. As I used the dispart to format to FAT, i left that alone. After that I had a 2GB partition (the rest unallocated). Then I used Win32diskimager to write an unpacked bz2 (232MB->1.3GB) to the drive using [this tutorial](http://arduino.vn/bai-viet/525-intel-galileo-install-linux-yocto-iot-devkit-intel-galileo#:~:text=Galileo%20will%20automatically%20boot%20the,(leave%20blank%20and%20hit%20Enter).) (ignoring the NTFS & FAT32 advice) and managing to find an Intel server that still hosted the image: https://iotdk.intel.com/images/1.5/
+
+Why I like this one: It includes "connman - is a command-line network manager designed for use with embedded devices and fast resolve times. It is modular through a plugin architecture, but has native dhcp and ntp support."
+
+If you recall from earlier in my Part 2 of X blog post yesterday, I lost the IP address after I flashed the firmware, and while I could set up a direct Ethernet cable to my laptop, I preferred to leave that microUSB -Serial cable for other communications, such as Arduino sketches. 
+
+After connecting to my Netgear intranet from my PC, initially it assigned an address in the 192.xxx. above 168.x, but then it received a fresh IP address and instead of saying <unknown> it actually had a name- GALILEO. So I loaded PuTTY, typed in the IP address, left SSH at the default radio dial with port 22 unchanged, and connected. It mentioned an unknown hash key, but since I trusted it - being on my intranet, I pressed yes and I was able to get a login prompt. It's important to use PuTTY and not CMD, including with administrative access, since CMD w/admin will only get you to a password prompt (and it's not clear which password it's asking for- I only tried the galileo one- which is empty and it said incorrect. With PuTTY it requests the username (root) and then the password should be empty.
+
+Interestingly the installation may have disrupted some of the COM settings or drivers for Arduino and disappeared from the Device Manager. It's possible the linux image updated the firmware- I saw what appeared to be an older number, but most likely the frequent handling of the microUSB cable and unplugging it while getting the ethernet recognized caused it to temporarily disappear (to confirm, I wasn't able to send a blink LED from Arduino 1.5.3, as it only detected COM5 (a different COM), but I am not too concerned about that right now- I am more pleased with getting linux to boot, and to prove it, I am inclluding a picture of top running (redis, systemd, and other programs running- using nearly 120MB of RAM, more than half the system's ram when you count cached and reserved memory... There is also a video on youtube. What I would like to do next is get a bootloader prompt whenever the system boots up, with possibly multiple distros/live images, but that is not a huge priority- it might be one way of making use of <img width="1190" height="1284" alt="FIRST BOOT galileo" src="https://github.com/user-attachments/assets/775a0ed2-ba2b-498f-a14e-e4bf2d7d677a" />
+larger microSD cards, which are the norm nowadays. Finding a 4GB or 2GB microSD isn't necessarily going to be a good use of one's money, unless they are bargain basement prices..
+
+Anyways, I would like to move on to bigger things, like running Debian, or something like this one but with more features. I also have no idea if it can connect to the internet- getting the internet sharing enabled may be tricky, even if it is technically on the net- I don't know how to check. Also, the only way I can remote into the device is on my intranet, which isn't connected to the internet, since I am using a mobile hotspot, and even if I could share the device, I might need it to connect to the router via the USB port on the back, so that the PC can wire into the netgear, while getting internet over the wifi...long story.
+
+
+<img width="1190" height="1284" alt="FIRST BOOT galileo" src="https://github.com/user-attachments/assets/0e9e8438-633c-4c9b-89db-cb8c126dae47" />
+
+The above image is what I saw before I used PuTTY for this SSH attempt. I do not recommend using CMD with admin (as I did in an attempt after this because it doesn't ask for the username on the linux machine and it doesn't accept the empty password) just use PuTTY or whichever SSH utility your machine has (TeraTerm also works on Windows):
+
+<img width="992" height="1366" alt="DHCP" src="https://github.com/user-attachments/assets/f47d533e-8653-43b5-919c-ef79ad7cf9ed" />
+
+https://www.youtube.com/watch?v=OqROsZosHsw&list=PLKvMTg3KKwP2c4D3414ua1VD9FkHAKGeO <-- There are 2 new videos in this playlist for Galileo- one is around 5 minutes long but you can ignore the end of it because I had accidentally set my Radeon recorder at a lower resolution, so when I resize it, the text is too blurry, hence I recorded a 2nd video with higher 4k resolution (even though it is just a region of the screen). You may have to sort the playlist by date because it will be at the bottom of the 8 videos (the first 6 are Yocto bitbake compilings on Ubuntu machines- you can ignore those, but I may actually bake a new one with all the software I want on the Galileo- all the shrimp you can eat. -Bubba Gump
 
 
 

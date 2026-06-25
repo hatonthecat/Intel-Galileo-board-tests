@@ -220,7 +220,7 @@ I was hooked because syscalls are really the path to the heart of the kernel. It
        to a normal function call and a few memory accesses."
 
 
- So what does this mean? Well, if you want to convince an ignorant 32 bit fan boy why they should use 64-bit, you're better off using _this_ particular argument. It's the same reason I like to partake in the anti-systemd online rallies just for the fun of it (not really anywhere, just a few gripes here and there). But my opposition is more subtle and contextual. I use Rocky Linux (now 9.8) to run a stable, linux as I am slowly looking for Windows escape hatches. I appreciate the utility of modern kernels in high performance machines. But I like studying far simpler, embedded systems, ones that may or may not need vDSO nor systemd. I am already leaning towards not, but I keep an open mind- most likely, the most taxing elements are journald and not systemd per se, and not syscalls per se, but frequent use of them for multi tasking and parallel systems. A single application operating system can get by even when invoking the taxing syscall directly to the kernel (the older, 32 bit method), since it is less able to manage hundreds of services on a parallel and high performance multi core machine where that same syscall would queue up the scheduler far more impractically. So I get it. It would be less accurate to call these older kernels and systems "museum kernels" and more as capable appliances, where closer interaction between the non-technical user and kernel management hides the expensive tax of the direct vsyscall:
+ So what does this mean? Well, if you want to convince an ignorant 32 bit fan boy why they should use 64-bit, you're better off using _this_ particular argument. It's the same reason I like to partake in the anti-systemd online rallies just for the fun of it (not really anywhere, just a few gripes here and there). But my opposition is more subtle and contextual. I use Rocky Linux (now 9.8) to run a stable, linux as I am slowly looking for Windows escape hatches. I appreciate the utility of modern kernels in high performance machines. But I like studying far simpler, embedded systems, ones that may or may not need vDSO nor systemd. I am already leaning towards not, but I keep an open mind- most likely, the most taxing elements are journald and not systemd per se, and not syscalls per se, but frequent use of them for multi tasking and parallel systems. A single application operating system can get by even when invoking the taxing syscall directly to the kernel (the older, 32 bit method), since it is less able to manage hundreds of services on a parallel and high performance multi core machine where that same syscall would queue up the scheduler far more impractically. So I get it. It would be less accurate to call these older kernels and systems "museum kernels" and more as capable appliances, where closer interaction between the non-technical user and kernel management _doesn't_ hide the expensive tax of the direct vsyscall:
 
 "__kernel_vsyscall"
 
@@ -231,6 +231,14 @@ I was hooked because syscalls are really the path to the heart of the kernel. It
        rather than "vdso".  Over time, people realized that this
        mechanism was a great way to pass more functionality to user
        space, so it was reconceived as a vDSO in the current format."
+
+Like a manual transmission (somewhat), When you change gears on a stick shift, you notice the RPMs a lot more. At least you have more control over the RPMs.
+
+On a continuous variable transmission, automatic, of course, which I love and use, I am saving gallons of gas by not being a torque obsessed driver.
+
+And then of course there is that simulated manual shift on Toyota's electric car concept: https://www.medicinehattoyota.com/2024/04/09/toyota-unveils-innovative-simulated-manual-transmission-for-electric-vehicles/ I guess that's what I'm doing with 32 bit- trying to prove it can be modern and not obsolete.
+
+
 
 As Newman said it best,
 

@@ -232,7 +232,7 @@ I was hooked because syscalls are really the path to the heart of the kernel. It
 
 As Newman said it best,
 
-<img width="320" height="240" alt="Seinfeld_Newman_When_you_control_the_mail" src="https://github.com/user-attachments/assets/69458043-dbae-4122-b884-e4a571ad36bd" />
+https://github.com/user-attachments/assets/07a9c5ed-d331-49ed-9556-8ec5f8fcf06c
 
 Or when you control the loopback, you control..nevermind.
        

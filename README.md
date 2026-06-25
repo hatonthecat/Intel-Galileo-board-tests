@@ -172,5 +172,71 @@ I still plan to set up X11 forwarding and all that jazz, although I am unsure if
 
 I guess I could figure out if the preinstalled opkg still points to something or I can route it somewhere else..first stop: Xorg/ X11?
 
+6-25-2026: vdso - overview of the virtual ELF dynamic shared object
+--
 
+After reading a brief mention of vDSO on the libx1000 repository, I was hooked:
+
+"Similarly another possible approach is to create a new hardware capability (hwcap) to indicate the lock prefix issue to the runtime linker. HWCaps are created at runtime and are communicated to the runtime linker through [vd.so](https://man7.org/linux/man-pages/man7/vdso.7.html) - a library the linux kernel inserts at runtime into the address space of all applications. This is how the runtime linker 'knows' to load cpu optimized versions of libraries. This is why the runtime linker might cause an application to load /lib/i686/cmov/libc.so.6 instead of /lib/libc.so.6 on an architecture that supports the cmov instruction. Similarly you might have /lib/i586/nlp/libc.so.6 to indicate no-lock-prefix (nlp)."  
+
+As mentioned on Ray Kinsella's blog,
+
+"The LOCK instruction itself is un-necessarily on the X1000, as it is a single core SOC and there are no other cores to signal with the LOCK prefix. The approach of distributions like Buildroot and Yocto is to strip the LOCK prefix during compile time with the omit-lock-prefix argument to the assembler. This approach works fine for roll-your-own distributions like these, but doesn’t help much with trying to run Debian on the Galileo."
+
+But what's done is done (what's manufactured doesn't need to be tossed in the trash), and perhaps if an open silicon designer wants to clone a 3/4/586, it would not be a byte for byte copy of the Quark ISA (maybe when the patent exp"ires in 2034, but with the LOCK prefix removed from the ISA- today I wondered that this lock prefix could actually be a sign that Intel designed a dual or quad core Quark in their Management Engine, and someone accidentally copy pasted that instruction when designing the Galileo X1000 chip, forgetting it is a single core, or it was intentionally crippled as one [blogger surmised](http://cholla.mmto.org/galileo/linuxsd.html):
+
+"But Intel was thinking of the Galileo as a "super arduino" or some such. We should be thankful that they included an SD slot I suppose. Maybe they were afraid of suggesting to people that the Galileo is capable of being a linux machine, expecting people to use the Arduino sandbox and neither know nor care that it was running linux under the hood. I have seen companies "cripple" a product to ensure that it does not compete with other products in their overall "strategy". Well, who knows."
+
+I was hooked because syscalls are really the path to the heart of the kernel. It hadn't occured to me that much of the 64-bit kernel depends highly on this new method of vDSOs, and 32 bit relies on the so-called antiquated syscall:
+
+"Example background
+       Making system calls can be slow.  In x86 32-bit systems, you can
+       trigger a software interrupt (int $0x80) to tell the kernel you
+       wish to make a system call.  However, this instruction is
+       expensive: it goes through the full interrupt-handling paths in
+       the processor's microcode as well as in the kernel.  Newer
+       processors have faster (but backward incompatible) instructions to
+       initiate system calls.  Rather than require the C library to
+       figure out if this functionality is available at run time, the C
+       library can use functions provided by the kernel in the vDSO.
+
+       Note that the terminology can be confusing.  On x86 systems, the
+       vDSO function used to determine the preferred method of making a
+       system call is named "__kernel_vsyscall", but on x86-64, the term
+       "vsyscall" also refers to an obsolete way to ask the kernel what
+       time it is or what CPU the caller is on.
+
+       One frequently used system call is gettimeofday(2).  This system
+       call is called both directly by user-space applications as well as
+       indirectly by the C library.  Think timestamps or timing loops or
+       polling—all of these frequently need to know what time it is right
+       now.  This information is also not secret—any application in any
+       privilege mode (root or any unprivileged user) will get the same
+       answer.  Thus the kernel arranges for the information required to
+       answer this question to be placed in memory the process can
+       access.  Now a call to gettimeofday(2) changes from a system call
+       to a normal function call and a few memory accesses."
+
+
+ So what does this mean? Well, if you want to convince an ignorant 32 bit fan boy why they should use 64-bit, you're better off using _this_ particular argument. It's the same reason I like to partake in the anti-systemd online rallies just for the fun of it (not really anywhere, just a few gripes here and there). But my opposition is more subtle and contextual. I use Rocky Linux (now 9.8) to run a stable, linux as I am slowly looking for Windows escape hatches. I appreciate the utility of modern kernels in high performance machines. But I like studying far simpler, embedded systems, ones that may or may not need vDSO nor systemd. I am already leaning towards not, but I keep an open mind- most likely, the most taxing elements are journald and not systemd per se, and not syscalls per se, but frequent use of them for multi tasking and parallel systems. A single application operating system can get by even when invoking the taxing syscall directly to the kernel (the older, 32 bit method), since it is less able to manage hundreds of services on a parallel and high performance multi core machine where that same syscall would queue up the scheduler far more impractically. So I get it. It would be less accurate to call these older kernels and systems "museum kernels" and more as capable appliances, where closer interaction between the non-technical user and kernel management hides the expensive tax of the direct vsyscall:
+
+"__kernel_vsyscall"
+
+  History
+  
+       The vDSO was originally just a single function—the vsyscall.  In
+       older kernels, you might see that name in a process's memory map
+       rather than "vdso".  Over time, people realized that this
+       mechanism was a great way to pass more functionality to user
+       space, so it was reconceived as a vDSO in the current format."
+
+As Newman said it best,
+
+<img width="320" height="240" alt="Seinfeld_Newman_When_you_control_the_mail" src="https://github.com/user-attachments/assets/69458043-dbae-4122-b884-e4a571ad36bd" />
+
+Or when you control the loopback, you control..nevermind.
+       
+And yes, when I read this, I actually agree [with him](https://news.slashdot.org/story/14/10/06/1837237/lennart-poettering-open-source-community-quite-a-sick-place-to-be-in).
+
+Back to actually learning code. Studying the history of linux features is more illiminating than many of the newest features. More likely I am going to find a useful feature that got deprecated than one that is high performing for the smallest systems.
 

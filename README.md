@@ -168,9 +168,9 @@ https://www.youtube.com/watch?v=OqROsZosHsw&list=PLKvMTg3KKwP2c4D3414ua1VD9FkHAK
 Found a library that fixes the Quark X1000 segfault error, which allows Debian distros to avoid this particular error: https://github.com/assa77/libx1000
 Apparently the vanilla Yocto images provided by the OE/Intel projects avoid this particular bug, hinting at awareness, but running Debian or another distro with more software packages/access is far more ideal. Although I am pretty sure the distro I want to built may benefit from a Yocto baking technique, over buildroot. In any case, this link is more of a mental note/reminder for future development.
 
-I still plan to set up X11 forwarding and all that jazz, although I am unsure if I want too preinstall a window manager or allow it to download afer a minimal Debian is installed. I don't foresee any particular issues, unless installing a package on the Galileo runs into a problem during compiling (which would be on another machine). Anyways, I don't really need a lot of the extra packages, like node.js or even the perl/python compilers. I mean, I might need them, but I could download them later.
+I still plan to set up X11 forwarding and all that jazz, although I am unsure if I want to preinstall a window manager or allow it to download afer a minimal Debian is installed. I don't foresee any particular issues, unless installing a package on the Galileo runs into a problem during compiling (which would be on another machine). Anyways, I don't really need a lot of the extra packages, like node.js or even the perl/python compilers. I mean, I might need them, but I could download them later.
 
-I guess I could figure out if the preinstalled opkg still points to something or I can route it somewhere else..first stop: X11?
+I guess I could figure out if the preinstalled opkg still points to something or I can route it somewhere else..first stop: Xorg/ X11?
 
 
 

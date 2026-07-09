@@ -30,4 +30,4 @@ I guess for ease of use, you'd want the option to set it as an Access Point, so 
 
 of course more typically one will get a "it can't be done" response: https://www.linuxquestions.org/questions/linux-software-2/running-xorg-on-a-serial-console-927982/ "When theres a will, theres a way"
 
-
+https://en.wikipedia.org/wiki/Laplink

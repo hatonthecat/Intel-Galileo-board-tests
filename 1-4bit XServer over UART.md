@@ -11,3 +11,23 @@ since the Galileo can't decode h.265/h.265, each frame would be 38KB, and 115kbp
 "Standard 8N1 framing (8 data bits, 1 stop bit, no parity) introduces a 2-bit overhead per byte, meaning your true throughput will be around 11,520 bytes/s. For reliable communication at this speed, cables should be kept short (typically under a few meters), and your microcontroller should use an external crystal or PLL to avoid timing drift."
 
 unless theres a way to only send the lines or quadrants of the screen, 38KB would consume more than three seconds of transfer rates. lowering the resolution is one option (320x240) = 9KB/s but then that"s only 1fps. additional scan lines could be sent sequentially and updated periodically.
+
+
+https://forums.raspberrypi.com/viewtopic.php?t=32170
+
+"Re: X forwarding via serial terminal (instead of SSH)
+Thu Jan 16, 2014 10:44 am
+
+I agree it would be one of those nice to haves. IMHO X-forwarding is simply genius.
+
+Regarding bandwidth, it wouldn't be as bad as all that. I recall regularly using a x86 program called laplink which did do full remote desktop via serial - it wasn't fast...but it worked well enough for what I needed.
+
+But yes I imagine a DIY solution would be a challenge to say the least. Wonder if the Wayland stuff has any tricks built-in to do this, since it uses its own alternative to X-Windows.
+
+If reducing wires is an issue (but power is not - i.e. not running off battery), then a Wifi dongle could be a lot easier (with all the added bonus of full network link).
+
+I guess for ease of use, you'd want the option to set it as an Access Point, so no router is needed (not tried that, but would be good to know how"
+
+of course more typically one will get a "it can't be done" response: https://www.linuxquestions.org/questions/linux-software-2/running-xorg-on-a-serial-console-927982/ "When theres a will, theres a way"
+
+
